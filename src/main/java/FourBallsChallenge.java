@@ -13,17 +13,6 @@ public class FourBallsChallenge extends PApplet {
         PApplet.main("FourBallsChallenge", args);
     }
 
-    private static void initializeBalls() {
-        fourBalls = new ArrayList<>();
-        float ballStartingPosX = 0;
-        for(int ballNumber = 1; ballNumber <= 4; ballNumber++) {
-            float distanceFromTop = ballNumber * ((float) screen.getHeight() / DISTANCE_FACTOR);
-            int currentBallSpeed = ballNumber;
-            Ball ball = new Ball(ballStartingPosX, distanceFromTop, currentBallSpeed);
-            fourBalls.add(ball);
-        }
-    }
-
     @Override
     public void settings() {
         size(screen.getWidth(), screen.getHeight());
@@ -37,6 +26,17 @@ public class FourBallsChallenge extends PApplet {
     @Override
     public void draw() {
         drawAllBalls();
+    }
+
+    private static void initializeBalls() {
+        fourBalls = new ArrayList<>();
+        float ballStartingPosX = 0;
+        for(int ballNumber = 1; ballNumber <= 4; ballNumber++) {
+            float distanceFromTop = ballNumber * ((float) screen.getHeight() / DISTANCE_FACTOR);
+            int currentBallSpeed = ballNumber;
+            Ball ball = new Ball(ballStartingPosX, distanceFromTop, currentBallSpeed);
+            fourBalls.add(ball);
+        }
     }
 
     private void drawAllBalls() {
